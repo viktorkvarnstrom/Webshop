@@ -1,0 +1,21 @@
+#mainwrapper ul {
+    list-style: none;
+    display: flex;
+    padding-left: 700px;
+    padding-top: 20px;
+    font-size: 0.8em;
+}
+
+            <div class="cardcontainer">
+                <div class="card-deck">
+                    <div class="card">
+                        <img src="img/Cardphoto.jpeg" class="card-img-top">
+                        <div class="card-body">
+                            <h5>Helix Stereo Colorful T-Shirt</h5>
+                            <p>$500.00 <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+                                class="fas fa-star"></i>
+                                <i class="fas fa-star"></i> <i class="fas fa-star"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
