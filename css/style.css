@@ -35,6 +35,7 @@ p {
 .topheader li  {
     padding: 7px;
     font-size: 0.8em;
+    cursor: pointer;
 }
 
 .topheader #paratop {
@@ -349,36 +350,41 @@ position: relative;
 /* end searchfiled*/
 
 /* start showcaseboxes */ 
-#showboxes {
+
+#showcaseboxes {
+    display: grid;
+    grid-template-columns: repeat(3, 340px);
+    grid-column-gap: 65px;
+    margin-top: 70px; 
+}
+
+.showboxes {
+    cursor: pointer;
+}
+
+#showcaseboxes .showboxes img {
     width: 340px;
 }
 
-#showcaseboxes #showboxes {
-    margin-top: 50px;
-}
-
-#showcaseboxes #showboxes img {
-    width: 340px;
-}
-
-#showboxes h5 {
+.showboxes h5 {
     margin-top: 25px;
     font-weight: bold;
     color: #0e1b33;
 }
 
-#showcaseboxes #showboxes #showboxesstars {
+#showcaseboxes .showboxes .showboxesstars {
     display: flex;
     margin-top: 10px;
-    margin-bottom: 75px;
+    margin-bottom: 2em;
 }
 
-#showcaseboxes #showboxes #showboxesstars p {
+#showcaseboxes .showboxes .showboxesstars p {
     margin-right: 194px;
+    margin-left: 0;
     color: #ff8155;
 }
 
-#showcaseboxes #showboxes #showboxesstars i {
+#showcaseboxes .showboxes .showboxesstars i {
     color: #ffba00;
 }
 
@@ -399,6 +405,7 @@ position: relative;
     border-radius: 50%;
     text-align: center;
     font-weight: bold;
+    cursor: pointer;
 }
 
 #pagesboxes #pagesboxul #orangedoot {
