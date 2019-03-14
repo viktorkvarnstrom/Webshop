@@ -364,6 +364,8 @@ position: relative;
 
 #showcaseboxes .showboxes img {
     width: 340px;
+    height: 400px;
+    object-fit:scale-down;
 }
 
 .showboxes h5 {

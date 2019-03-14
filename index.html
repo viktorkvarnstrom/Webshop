@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body data-ng-app="sortApp" data-ng-controller="sortController">
     <!--Start Header-->
     <header>
         <!--Top header-->
@@ -115,12 +115,11 @@
                 <div class="roundicons">
                     <div id="hre"><i class="fas fa-th"></i></div>
                     <div id="cubes"><i class="fas fa-bars"></i></div>
-                    <select>
-                        <option value="" selected>Sort by</option>
-                        <option value="">Längsta pris</option>
-                        <option value="">Högsta pris</option>
-                        <option value="">Alfabetiskt</option>
-                    </select>
+                        <select data-ng-model="sortColumn">
+                            <option selected value="sortyby">Sort by</option>
+                            <option value="price">Pris</option>
+                            <option value="productname">Product</option>
+                        </select>
                     <ul id="searchglass">
                         <li>
                             <input type="text" placeholder="Search from here....">
@@ -131,16 +130,16 @@
             </div>
         </section>
         <!--End searchfield-->
-
+        
         <!--Start showcaseboxes-->
         <section id="showcaseboxes" class="container">
-            <div class="showboxes">
+            <div class="showboxes" data-ng-repeat="product in products | orderBy:sortColumn">
                 <div>
-                    <img src="img/Cardphoto.jpeg">
-                    <h5>Helo stero color t-shirt</h5>
+                    <img data-ng-src= "{{ product.src }}">
+                    <h5>{{ product.productname }}</h5>
                 </div>
                 <div class="showboxesstars">
-                    <p>$500.00</p>
+                    <p>{{ product.price | currency: "" }}</p>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
