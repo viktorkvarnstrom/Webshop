@@ -368,6 +368,14 @@ position: relative;
     object-fit:scale-down;
 }
 
+#showcaseboxes .showboxes img:hover  {
+    box-shadow: 0 0px 0 0 #ffffff63, 0 0.5px 10px 0 rgba(179, 179, 179, 0.616);
+    transform: scale(1.1);
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+
 .showboxes h5 {
     margin-top: 25px;
     font-weight: bold;
