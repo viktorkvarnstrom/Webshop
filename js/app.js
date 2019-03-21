@@ -19,5 +19,6 @@
 
         $scope.products = products;
         $scope.sortColumn = "productname";
+        $scope.rowLimits = 6;
 
     });

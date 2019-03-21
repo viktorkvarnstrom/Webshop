@@ -322,7 +322,13 @@ position: relative;
     outline: none;
     padding: 10px;
     color: #788892;
-    margin-left: 610px;
+    margin-left: 10px;
+}
+
+#searchfield #rowlimits select, option {
+    margin-left: 545px;
+    width: 80px;
+    
 }
 
 
@@ -343,7 +349,7 @@ position: relative;
 
 #searchfield #searchglass img {
     position: absolute;
-    left: 87%;
+    left: 84%;
     top: 790px;
     cursor: pointer;
 }
@@ -446,10 +452,11 @@ footer {
     color: #ff8155;
 }
 
+
 #firstdivfooter h3 {
     color: #fff;
     padding-bottom: 20px;
-    margin-left: 20px;
+    margin-left: 80px;
     margin-top: 50px;
 }
 

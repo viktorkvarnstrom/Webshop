@@ -115,14 +115,22 @@
                 <div class="roundicons">
                     <div id="hre"><i class="fas fa-th"></i></div>
                     <div id="cubes"><i class="fas fa-bars"></i></div>
-                        <select data-ng-model="sortColumn">
-                            <option selected value="sortyby">Sort by</option>
-                            <option value="price">Pris</option>
-                            <option value="productname">Product</option>
+                    <div id="rowlimits">
+                        <select ng-model="rowLimits">
+                            <option value="6">6</option>
+                            <option value="9">9</option>
+                            <option value="12">12</option>
+                            <option value="18">18</option>
                         </select>
+                    </div>
+                    <select data-ng-model="sortColumn">
+                        <option selected value="sortyby">Sort by</option>
+                        <option value="price">Pris</option>
+                        <option value="productname">Product</option>
+                    </select>
                     <ul id="searchglass">
                         <li>
-                            <input type="text" placeholder="Search from here....">
+                            <input type="text" placeholder="Search from here...." ng-model="searchText">
                             <img src="img/search.jpg">
                         </li>
                     </ul>
@@ -130,12 +138,13 @@
             </div>
         </section>
         <!--End searchfield-->
-        
+
         <!--Start showcaseboxes-->
         <section id="showcaseboxes" class="container">
-            <div class="showboxes" data-ng-repeat="product in products | orderBy:sortColumn">
+            <div class="showboxes"
+                data-ng-repeat="product in products | orderBy:sortColumn | filter: searchText | limitTo:rowLimits">
                 <div>
-                    <img data-ng-src= "{{ product.src }}">
+                    <img data-ng-src="{{ product.src }}">
                     <h5>{{ product.productname }}</h5>
                 </div>
                 <div class="showboxesstars">
