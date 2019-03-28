@@ -126,9 +126,13 @@ position: relative;
     padding: 5px 20px 5px 20px;
     font-size: 14px;
     font-weight: 600;
-    font-weight: 600px;
     border-radius: 20px;
 } 
+
+.more-btn:hover {
+    text-decoration: none;
+    color: #686868;
+}
 
 #getaq {
     position: absolute;
@@ -431,6 +435,27 @@ position: relative;
 
 /* End showcaseboxes
 
+/* start list showboxes view*/
+
+#listviewboxes tr:hover {
+    box-shadow: 0 0px 0 0 #ffffff63, 0 0.5px 10px 0 rgba(73, 72, 72, 0.616);
+    transform: scale(1.1);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
+td, #listvimg {
+    width: 250px;
+    height:150px;
+    object-fit:scale-down;
+    padding-right: 20px;
+}
+
+.showboxesstars {
+    color: #ffba00;
+}
+
 /* start footer */
 footer {
     height: 609px;
@@ -469,13 +494,16 @@ footer {
 
 #firstdivfooter li {
     margin-right: 7px;
-    padding: 15px;
+    text-align: center;
+    padding-top: 12px;
     height: 50px;
     width: 50px;
     background: #fff;
     border-radius: 50%;
     color: #30353d;
+    display: inline-block;
 }
+
 
 #firstdivfooter #twitter {
     background: #ff8155;
@@ -577,4 +605,15 @@ footer {
     letter-spacing: 2px;
     margin-top: 80px;
     float: right;
+}
+
+#thirddivfooter button, a {
+    color: #ffff;
+    outline: none;
+    text-decoration: none;
+}
+
+#thirddivfooter a:hover {
+    text-decoration: none;
+    color: #fff;
 }

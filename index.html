@@ -9,7 +9,11 @@
 
     <!--Script filer-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-route.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="controller/controllers.js"></script>
+    <script src="model/products.js"></script>
     <!--Stylesheet-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -20,6 +24,7 @@
 </head>
 
 <body data-ng-app="sortApp" data-ng-controller="sortController">
+    <a name="top"></a>
     <!--Start Header-->
     <header>
         <!--Top header-->
@@ -113,8 +118,8 @@
         <section id="searchfield">
             <div>
                 <div class="roundicons">
-                    <div id="hre"><i class="fas fa-th"></i></div>
-                    <div id="cubes"><i class="fas fa-bars"></i></div>
+                    <div id="hre"><i class="fas fa-th"></i><a href="#!list.view"></a></div>
+                    <div id="cubes"><i class="fas fa-bars"><a href="#/!"></a></i></div>
                     <div id="rowlimits">
                         <select ng-model="rowLimits">
                             <option value="6">6</option>
@@ -140,23 +145,7 @@
         <!--End searchfield-->
 
         <!--Start showcaseboxes-->
-        <section id="showcaseboxes" class="container">
-            <div class="showboxes"
-                data-ng-repeat="product in products | orderBy:sortColumn | filter: searchText | limitTo:rowLimits">
-                <div>
-                    <img data-ng-src="{{ product.src }}">
-                    <h5>{{ product.productname }}</h5>
-                </div>
-                <div class="showboxesstars">
-                    <p>{{ product.price | currency: "" }}</p>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-            </div>
-        </section>
+        <div data-ng-view></div>
         <div id="pagesboxes">
             <ul id="pagesboxul">
                 <li><i class="fas fa-arrow-left"></i></li>
@@ -183,9 +172,9 @@
             <ul>
                 <li><i class="fab fa-facebook-f"></i></li>
                 <li id="twitter"><i class="fab fa-twitter"></i></li>
-                <li></li>
+                <li><i><img src="img/Be.jpg"></i></li>
                 <li><i class="fab fa-youtube"></i></li>
-                <li></li>
+                <li><i><img src="img/pinterest.jpg"></i></li>
             </ul>
             <p id="copyright">Copyright By@<span>NilArtStudio-</span>2019</p>
         </div>
@@ -233,7 +222,7 @@
                     </div>
                 </div>
             </div>
-            <button>Back to top</button>
+            <button><a href="#top">Back to top</a></button>
         </div>
     </footer>
     <!--End footer-->

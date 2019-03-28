@@ -1,0 +1,19 @@
+<section class="container">
+    <div id="listviewboxes"
+        data-ng-repeat="product in products | orderBy:sortColumn | filter: searchText | limitTo:rowLimits">
+        <table>
+            <tbody>
+                <tr>
+                    <td><img id="listvimg" data-ng-src="{{ product.src }}"></td>
+                    <td>{{ product.productname }}</td>
+                    <td>{{ product.price | currency: "" }}</td>
+                    <td class="showboxesstars"><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
