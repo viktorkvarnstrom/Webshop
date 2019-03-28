@@ -437,13 +437,16 @@ position: relative;
 
 /* start list showboxes view*/
 
+#listviewboxes .container table, tbody {
+margin-left: 50px;
+}
+
 #listviewboxes tr:hover {
     box-shadow: 0 0px 0 0 #ffffff63, 0 0.5px 10px 0 rgba(73, 72, 72, 0.616);
     transform: scale(1.1);
     transition: 0.3s;
     cursor: pointer;
 }
-
 
 td, #listvimg {
     width: 250px;
@@ -454,6 +457,8 @@ td, #listvimg {
 
 .showboxesstars {
     color: #ffba00;
+    text-align: right;
+
 }
 
 /* start footer */

@@ -1,8 +1,8 @@
-<section class="container">
-    <div id="listviewboxes"
+<section>
+    <div id="listviewboxes" class="container"
         data-ng-repeat="product in products | orderBy:sortColumn | filter: searchText | limitTo:rowLimits">
-        <table>
-            <tbody>
+        <div class="container">
+            <table>
                 <tr>
                     <td><img id="listvimg" data-ng-src="{{ product.src }}"></td>
                     <td>{{ product.productname }}</td>
@@ -13,7 +13,7 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i></td>
                 </tr>
-            </tbody>
-        </table>
+            </table>
+        </div>
     </div>
 </section>

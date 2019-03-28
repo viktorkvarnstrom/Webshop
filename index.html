@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="sortApp">
 
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
 
 </head>
 
-<body data-ng-app="sortApp" data-ng-controller="sortController">
+<body>
     <a name="top"></a>
     <!--Start Header-->
     <header>
@@ -118,8 +118,8 @@
         <section id="searchfield">
             <div>
                 <div class="roundicons">
-                    <div id="hre"><i class="fas fa-th"></i><a href="#!list.view"></a></div>
-                    <div id="cubes"><i class="fas fa-bars"><a href="#/!"></a></i></div>
+                    <div id="hre"><a href="#!box"><i class="fas fa-th"></i></a></div>
+                    <div id="cubes"><a href="#!list"><i class="fas fa-bars"></i></a></div>
                     <div id="rowlimits">
                         <select ng-model="rowLimits">
                             <option value="6">6</option>
