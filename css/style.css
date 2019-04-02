@@ -335,8 +335,6 @@ position: relative;
     
 }
 
-
-
 #searchfield .roundicons input {
     position: relative;
     height: 50px;
@@ -376,12 +374,12 @@ position: relative;
     width: 340px;
     height: 400px;
     object-fit:scale-down;
+    transition: all 0.2s;
 }
 
 #showcaseboxes .showboxes img:hover  {
     box-shadow: 0 0px 0 0 #ffffff63, 0 0.5px 10px 0 rgba(179, 179, 179, 0.616);
     transform: scale(1.1);
-    transition: 0.3s;
     border-radius: 10px;
 }
 
@@ -435,16 +433,19 @@ position: relative;
 
 /* End showcaseboxes
 
-/* start list showboxes view*/
-
+/* start list view boxes*/
 #listviewboxes .container table, tbody {
 margin-left: 50px;
 }
 
+#listviewboxes tr {
+    transition: all 0.2s;
+}
+
 #listviewboxes tr:hover {
     box-shadow: 0 0px 0 0 #ffffff63, 0 0.5px 10px 0 rgba(73, 72, 72, 0.616);
-    transform: scale(1.1);
-    transition: 0.3s;
+    border-radius: 5px;
+    transform: scale(1.03);
     cursor: pointer;
 }
 
@@ -460,6 +461,7 @@ td, #listvimg {
     text-align: right;
 
 }
+/* end list view boxes*/
 
 /* start footer */
 footer {
@@ -622,3 +624,4 @@ footer {
     text-decoration: none;
     color: #fff;
 }
+/*end footer*/

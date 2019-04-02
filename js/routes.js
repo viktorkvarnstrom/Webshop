@@ -1,16 +1,16 @@
 app.config(function($routeProvider) {
     $routeProvider
     .when("/", { 
-        templateUrl: "view/list.html",
+        templateUrl: "view/box.html",
         controller: "sortController" 
     })
     .when("/list", { 
         templateUrl: "view/list.html",
-        controller: "listController" 
+        controller: "sortController" 
     })
     
     .when("/box", { 
         templateUrl: "view/box.html",
-        controller: "boxController" 
+        controller: "sortController" 
     })
 })
