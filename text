@@ -83,3 +83,151 @@ showboxes
             </div>
         </section>
 -------------------------------------------------------------------------------------------------------------------------------        
+
+---------------------------------------------------------------------------------------------------------------------------------
+controller (controllers.js)
+
+app.controller("sortController", function($scope) {
+    $scope.products = products;
+    $scope.products.sortColumn = "productname";
+    $scope.products.rowLimits = 6;
+});
+--------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------
+model (products.js)
+
+    var products = [
+        { productname: "Marshall högtalare", price: 2990, src: "img/marshall.jpg" },
+        { productname: "Bose högtalare", price: 990, src: "img/bose.jpg" },
+        { productname: "JBL Charge 4", price: 1690, src: "img/jblcharge4.jpg" },
+        { productname: "Portabel partyhögtalare", price: 1790, src: "img/anderssonparty.jpg" },
+        { productname: "Audio pro A10", price: 1990, src: "img/audioproa10.jpg" },
+        { productname: "Google home mini", price: 599, src: "img/googlehome.jpg" },
+        { productname: "Audio pro Addon T3 - black", price: 1290, src: "img/audio-pro-addon-t3.jpg"  },
+        { productname: "Marshall Acton BT", price: 1290, src: "img/marshallacton.jpg" },
+        { productname: "JBL Boombox", price: 4990, src: "img/jblboombox.jpg" },
+        { productname: "LG PK3", price: 799, src: "img/lgpk3.jpg" },
+        { productname: "Radoi panasonic", price: 1990, src: "img/radiopan.jpg" },
+        { productname: "Marshall Woburn II BT", price: 4690, src: "img/marshall-woburn.jpg" }
+    ];
+
+--------------------------------------------------------------------------------------------
+
+-----------------------------
+js (app.js)
+
+    var app = angular.module("sortApp", ["ngRoute"]);
+
+................................
+
+js routes.js 
+
+-------------------------------
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", { 
+        templateUrl: "view/box.html",
+        controller: "sortController" 
+    })
+    .when("/list", { 
+        templateUrl: "view/list.html",
+        controller: "sortController" 
+    })
+    
+    .when("/box", { 
+        templateUrl: "view/box.html",
+        controller: "sortController" 
+    })
+})
+------------------------------
+
+
+<section id="showcaseboxes" class="container">
+    <div class="showboxes"
+        data-ng-repeat="product in products | orderBy:sortColumn | filter: searchText | limitTo:rowLimits">
+        <div>
+            <img data-ng-src="{{ product.src }}">
+            <h5>{{ product.productname }}</h5>
+        </div>
+        <div class="showboxesstars">
+            <p>{{ product.price | currency: "" }}</p>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+    </div>
+</section>
+
+
+
+                    <ul class="navbar-nav mr-2">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-shopping-cart"></i><span class="badge badge-pill" ng-class="badgeColor">{{ getQuantity() }}</span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <p>{{ product.emptycart }}</p>
+                                <table> 
+                                    <tr ng-repeat="product in cart">
+                                        <td>{{product.quantity}} x {{ product.productname }}</td>
+                                        <td>{{getProductCost(product)}} :-</td>
+                                        <td><button class="btn btn-link remove-item " ng-click="removeItem(product)"><i class="fas fa-trash-alt"></i></button></td>
+                                    </tr>
+                                </table>
+                                <h4 class="mt-2">Total: {{ getTotal() }} SEK</h4>
+                                <button type="button" class="btn btn-primary btn-lg btn-block">Log in</button>
+                                <button type="button" class="btn btn-secondary btn-lg btn-block">Checkout</button>
+                            </div>
+                        </li>
+                    </ul>
+
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <p>{{ product.emptycart }}</p>
+                                <table> 
+                                    <tr ng-repeat="product in cart">
+                                        <td>{{product.quantity}} x {{ product.productname }}</td>
+                                        <td>{{getProductCost(product)}} :-</td>
+                                        <td><button class="btn btn-link remove-item " ng-click="removeItem(product)"><i class="fas fa-trash-alt"></i></button></td>
+                                    </tr>
+                                </table>
+                                <h4 class="mt-2">Total: {{ getTotal() }} SEK</h4>
+                                <button type="button" class="btn btn-primary btn-lg btn-block">Log in</button>
+                                <button type="button" class="btn btn-secondary btn-lg btn-block">Checkout</button>
+                            </div>
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>{{ product.emptycart }}</p>
+                                            <table>
+                                                <tr ng-repeat="product in cart">
+                                                    <td>{{product.quantity}} x {{ product.productname }}</td>
+                                                    <td>{{getProductCost(product)}} :-</td>
+                                                    <td><button class="btn btn-link remove-item" ng-click="removeItem(product)"><iclass="fas fa-trash-alt"></i></button></td>
+                                                </tr>
+                                            </table>
+                                            <h4 class="mt-2">Total: {{ getTotal() }} SEK</h4>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Log in</button>
+                                            <button type="button" class="btn btn-primary">Checkout</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#exampleModal">
+                                {{ getQuantity() }}
+                            </button>

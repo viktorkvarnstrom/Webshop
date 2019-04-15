@@ -1,0 +1,20 @@
+<section>
+    <div id="listviewboxes" class="container"
+        data-ng-repeat="product in products | orderBy:sortColumn | filter: searchText | limitTo:rowLimits">
+        <div class="container">
+            <table>
+                <tr>
+                    <td><img id="listvimg" data-ng-src="{{ product.src }}"></td>
+                    <td>{{ product.productname }}</td>
+                    <td>{{ product.price | currency: "" }}</td>
+                    <td class="showboxesstars">
+                        <div class="stars-outer">
+                            <div class="stars-inner" ng-style="{ 'width': rating(product.rating) }"></div>
+                        </div>
+                    </td>
+                    <td><button class="addBtn" ng-click="addItem(product)">Add to Cart</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>

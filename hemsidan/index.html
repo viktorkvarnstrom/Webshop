@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="sortApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!--Script filer-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+    <script src="app.js"></script>
+    <script src="js/routes.js"></script>
+
+
+
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <!--Start Header-->
+    <header>
+        <!--Top header-->
+        <div class="topheader">
+            <ul>
+                <li id="facebookicon"><i class="fab fa-facebook-f"></i></li>
+                <li id="twittericon"><i class="fab fa-twitter"></i></li>
+                <li>Be</li>
+                <li id="powericon"><i class="fab fa-superpowers"></i></li>
+                <li id="youtubeicon"><i class="fab fa-youtube"></i></li>
+            </ul>
+            <div id="paratop">
+                <p>FAQ</p>
+                <p>TERMS</p>
+            </div>
+            <div id="mail">
+                <ul id="links">
+                    <li class="mail"><i class="far fa-envelope"></i></li>
+                    <li class="mail">vskvarnstrom@gmail.com</li>
+                    <button type="button" id="btnloginbtn" class="btn btn-sm btn-secondary">Log in</button>
+                </ul>
+            </div>
+        </div>
+        <!--Top header-->
+
+        <!--Header main wrapper-->
+        <div id="mainwrapper">
+            <div>
+                <nav>
+                    <img id="logotype" src="img/logo.jpg">
+                    <h3 id="logotext">Pohat<span>.</span></h3>
+                    <a href="#" class="more-btn">EN</a>
+                    <button id="phonenumber">+90878 87 878 7</button>
+                    <ul>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Service</li>
+                        <li>Pages</li>
+                        <li>News</li>
+                        <li>Contact</li>
+                    </ul>
+                    <button id="getaq">GET A QUOTE</button>
+                    <ul class="navbar-nav mr-2">
+                        <li class="nav-item dropdown">
+                            <!-- Button trigger modal -->
+                            <button id="addCartbtn" type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#exampleModal"><i class="fas fa-shopping-cart"></i>
+                                <span class="badge badge-pill" ng-class="badgeColor">{{ getQuantity() }}</span>
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Shopping cart</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>{{ emptycart }}</p>
+                                            <table> 
+                                                <tr ng-repeat="product in cart">
+                                                    <td><img data-ng-src="{{ product.src }}"></td>
+                                                    <td>{{product.quantity}} x {{ product.productname }}</td>
+                                                    <td>{{getProductCost(product)}}:-</td>
+                                                    <td><button class="btn btn-link remove-item " ng-click="removeItem(product)"><i class="fas fa-trash-alt"></i></button></td>
+                                                </tr>
+                                            </table>
+                                            <h4 class="mt-2">Total: {{ getTotal() }} SEK</h4>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Log In</button>
+                                            <button type="button" class="btn btn-primary">Checkout</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!--End Header-->
+
+    <!--Start Showcase-->
+    <section id="showcase">
+        <div id="wrapper_showcase">
+            <div id="background">
+                <div id="showcase_content">
+                    <p> <span>DIGITAL MARKETING</span></p>
+                    <h1>Product Store</h1>
+                    <p>Home | Shop</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End showcase-->
+
+    <!--Main starts-->
+    <main class="container">
+
+        <!--Showbar starts-->
+        <div id="showbar">
+            <div id="firstdivmain">
+                <h5>Free Shipping</h5>
+                <p>Orders over $100</p>
+                <img src="img/truckerjpg.jpg">
+            </div>
+            <div id="seconddivmain">
+                <h5>Free Return</h5>
+                <p>in 30 Days</p>
+                <img src="img/freereturn.jpg">
+            </div>
+            <div id="thirddivmain">
+                <h5>100% Secure</h5>
+                <p>Shipping</p>
+                <img src="img/hundred.jpg">
+            </div>
+            <div id="fourdivmain">
+                <h5>Best Price</h5>
+                <p>Garanted</p>
+                <img src="img/bestprice.jpg">
+            </div>
+        </div>
+        <!--End showbar-->
+
+        <!-- Start Searchiled-->
+        <section id="searchfield">
+            <div>
+                <div class="roundicons">
+                    <div id="hre"><a href="#!box"><i class="fas fa-th"></i></a></div>
+                    <div id="cubes"><a href="#!list"><i class="fas fa-bars"></i></a></div>
+                    <div id="rowlimits">
+                        <select data-ng-model="rowLimits">
+                            <option value="" default>Antal produkter per sida:</option>
+                            <option value="6">6</option>
+                            <option value="9">9</option>
+                            <option value="12">12</option>
+                            <option value="18">18</option>
+                        </select>
+                    </div>
+                    <select data-ng-model="sortColumn">
+                        <option value="" default>Sortera efter</option>
+                        <option value="+price">Pris, lägst först</option>
+                        <option value="-price">Pris, högst först</option>
+                        <option value="+productname">Märke A-Ö</option>
+                        <option value="-productname">Märke Ö-A</option>
+                        <option value="-rating">Betyg</option>
+                    </select>
+                    <ul id="searchglass">
+                        <li>
+                            <input type="text" placeholder="Sök efter produkter..." ng-model="searchText">
+                            <img src="img/search.jpg">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--End searchfield-->
+
+        <!--Start showcaseboxes-->
+        <div data-ng-view></div>
+        <div id="pagesboxes">
+            <ul id="pagesboxul">
+                <li><i class="fas fa-arrow-left"></i></li>
+                <li>01</li>
+                <li id="orangedoot">02</li>
+                <li><i class="fas fa-ellipsis-h"></i></li>
+                <li>04</li>
+                <li><i class="fas fa-arrow-right"></i></li>
+            </ul>
+        </div>
+        <!--End Showcaseboxes-->
+
+    </main>
+    <!--end main-->
+
+    <!--Start footer-->
+    <footer>
+        <div id="firstdivfooter">
+            <h3>Pohat<span>.</span></h3>
+            <p>voluptate repellendus, quos, error quibusdam voluptas minus culpa illo! Atque, magni voluptatibus,
+                aspernatur voluptas eum unde reiciendis quidem nihil sequi quia alias omnis labore totam ex
+                necessitatibus porro, repellat quas quibusdam qui quam vitae.
+            </p>
+            <ul>
+                <li><i class="fab fa-facebook-f"></i></li>
+                <li id="twitter"><i class="fab fa-twitter"></i></li>
+                <li><i><img src="img/Be.jpg"></i></li>
+                <li><i class="fab fa-youtube"></i></li>
+                <li><i><img src="img/pinterest.jpg"></i></li>
+            </ul>
+            <p id="copyright">Copyright By@<span>NilArtStudio-</span>2019</p>
+        </div>
+        <div id="seconddivfooter">
+            <ul>
+                <h3>More links<span>.</span></h3>
+                <li>Paid Seo</li>
+                <li>Digital MARKETING</li>
+                <li>Startigy planing</li>
+                <li>Offline SEO</li>
+                <li>Page Rank Up</li>
+                <li>User Panel</li>
+            </ul>
+            <ul id="secondulfooter">
+                <li>Services</li>
+                <li>Our team</li>
+                <li>News</li>
+                <li>Shop</li>
+                <li>Contact us</li>
+                <li>Book Appoinment</li>
+            </ul>
+        </div>
+        <div id="thirddivfooter">
+            <h3>News Feeds<span>.</span></h3>
+            <div>
+                <div class="contentthrid">
+                    <img src="img/photofooter.jpeg">
+                    <div class="textincontentthird">
+                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing.</h5>
+                        <p>27 juli 2019</p>
+                    </div>
+                </div>
+                <div class="contentthrid">
+                    <img src="img/photofooter.jpeg">
+                    <div class="textincontentthird">
+                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing.</h5>
+                        <p>27 juli 2019</p>
+                    </div>
+                </div>
+                <div class="contentthrid">
+                    <img src="img/photofooter.jpeg">
+                    <div class="textincontentthird">
+                        <h5>Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
+                        <p>27 juli 2019</p>
+                    </div>
+                </div>
+            </div>
+            <button>Back to top</button>
+        </div>
+    </footer>
+    <!--End footer-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

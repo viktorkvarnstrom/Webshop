@@ -1,0 +1,17 @@
+<section id="showcaseboxes" class="container">
+    <div class="showboxes"
+        data-ng-repeat="product in products | orderBy:sortColumn | filter: searchText | limitTo:rowLimits">
+        <div>
+            <img data-ng-src="{{ product.src }}">
+            <h5>{{ product.productname }}</h5>
+        </div>
+        <div class="showboxesstars">
+            <p>{{ product.price | currency: "" }}</p>
+            <div class="stars-outer">
+                <div class="stars-inner" ng-style="{ 'width': rating(product.rating) }"></div>
+            </div>
+            
+        </div>
+        <td><button id="boxAddbtn" class="addBtn" ng-click="addItem(product)">Add to Cart</button></td>
+    </div>
+</section>
