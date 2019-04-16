@@ -407,8 +407,8 @@ position: relative;
     position: relative;
 }
 
-#searchfield input::placeholder {
-    padding: 10px;
+#searchfield input {
+    padding-left: 20px;
 }
 
 #searchfield #searchglass img {
