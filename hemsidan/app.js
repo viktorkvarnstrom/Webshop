@@ -24,6 +24,8 @@ var app = angular
 
         })
 
+        
+
         $rootScope.addItem = function(product) {
             var found = getProductId($rootScope.cart, product.id);
     

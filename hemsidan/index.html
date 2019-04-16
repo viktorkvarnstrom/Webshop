@@ -90,19 +90,21 @@
                                         </div>
                                         <div class="modal-body">
                                             <p>{{ emptycart }}</p>
-                                            <table> 
+                                            <table>
                                                 <tr ng-repeat="product in cart">
                                                     <td><img data-ng-src="{{ product.src }}"></td>
                                                     <td>{{product.quantity}} x {{ product.productname }}</td>
                                                     <td>{{getProductCost(product)}}:-</td>
-                                                    <td><button class="btn btn-link remove-item " ng-click="removeItem(product)"><i class="fas fa-trash-alt"></i></button></td>
+                                                    <td><button class="btn btn-link remove-item "
+                                                            ng-click="removeItem(product)"><i
+                                                                class="fas fa-trash-alt"></i></button></td>
                                                 </tr>
                                             </table>
                                             <h4 class="mt-2">Total: {{ getTotal() }} SEK</h4>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Log In</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Log
+                                                In</button>
                                             <button type="button" class="btn btn-primary">Checkout</button>
                                         </div>
                                     </div>
